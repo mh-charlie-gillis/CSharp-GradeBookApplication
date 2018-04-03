@@ -114,15 +114,21 @@ namespace GradeBook.GradeBooks
             switch (letterGrade)
             {
                 case 'A':
-                    return 4;
+                    return UseWeighted(studentType) ? 5 : 4;
                 case 'B':
-                    return 3;
+                    return UseWeighted(studentType) ? 4 : 3;
                 case 'C':
-                    return 2;
+                    return UseWeighted(studentType) ? 3 : 2;
                 case 'D':
-                    return 1;
+                    return UseWeighted(studentType) ? 2 : 1;
             }
             return 0;
+        }
+
+        private bool UseWeighted(StudentType studentType)
+        {
+            return IsWeighted == true &&
+                   (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled);
         }
 
         public virtual void CalculateStatistics()
