@@ -54,9 +54,9 @@ namespace GradeBook.UserInterfaces
                     break;
 
                 default:
-                    String.Format("{0} is not a supported type of gradebook, please try again", type);
+                    Console.WriteLine("{0} is not a supported type of gradebook, please try again", type);
                     return;
-                    
+
             }
             //BaseGradeBook gradeBook = new BaseGradeBook(name);
             Console.WriteLine("Created gradebook {0}.", name);
